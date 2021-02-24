@@ -5,8 +5,9 @@ using UnityEngine;
 public class ShadowDebugger : MonoBehaviour
 {
     //Vector3[] points;
-    public Transform light;
+    public Transform LightPos;
     public Transform ponte;
+    public GameObject placeHolder;
     private List<Vector3> points;
     [Range(0, 300)]
     public float lenght;
@@ -15,10 +16,7 @@ public class ShadowDebugger : MonoBehaviour
     {
         points = new List<Vector3>();
     }
-    private void OnValidate()
-    {
 
-    }
     // Update is called once per frame
     void Update()
     {
@@ -32,9 +30,20 @@ public class ShadowDebugger : MonoBehaviour
         for (int i = 0; i < mesh.vertices.Length; i++)
         {
             Vector3 vPos = transform.TransformPoint(mesh.vertices[i]);
-            Vector3 dir = (vPos - light.position).normalized;
+            Vector3 dir = (vPos - LightPos.position).normalized;
             RaycastHit hit;
-            Physics.Raycast(new Ray(light.position, dir), out hit, LayerMask.NameToLayer("Obstacles"));
+            if(Physics.Raycast(new Ray(LightPos.position, dir), out hit, LayerMask.NameToLayer("Obstacles")))
+            {
+                //if (hit.transform.gameObject.layer)
+                //{
+
+                //}
+                Debug.Log(hit.transform.name);
+            }
+            //GameObject obj  = Instantiate(placeHolder);
+            //obj.transform.position = hit.point;
+            Debug.DrawRay(LightPos.position, dir*lenght);
             points.Add(hit.point);
         }
     }
+}
