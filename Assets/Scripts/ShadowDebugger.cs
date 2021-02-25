@@ -21,7 +21,7 @@ public class ShadowDebugger : MonoBehaviour
     public Transform Up, Left, Right;
 
     public float coneAngle, angleBetweenLightandCorner;
-    float shadowAngle;
+    //float shadowAngle;
 
     public Vector3 LeftVertex, RightVertex;
 
@@ -45,6 +45,7 @@ public class ShadowDebugger : MonoBehaviour
             LeftVertex = transform.position;
             RightVertex = transform.position;
             //Debug.Log("SOno Dentro il cono di luce");
+            
             for (int i = 0; i < mesh.vertices.Length / 3; i++)
             {
                 Vector3 vPos = transform.TransformPoint(mesh.vertices[i]);
@@ -82,10 +83,10 @@ public class ShadowDebugger : MonoBehaviour
 
                 Vector3 shadowDir = meshVertexWS - LightPos.position;
 
-                shadowAngle += Vector3.Angle(LightPos.forward, shadowDir);
+                //shadowAngle += Vector3.Angle(LightPos.forward, shadowDir);
             }
             meshColliderCheckerPos /= (mesh.vertices.Length / 3) * 2;
-            shadowAngle /= (mesh.vertices.Length / 3);
+            //shadowAngle /= (mesh.vertices.Length / 3);
 
 
 
