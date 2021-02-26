@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowDebugger : MonoBehaviour
+public class ShadowDebugger1 : MonoBehaviour
 {
     //Vector3[] points;
     public Transform LightPos;
