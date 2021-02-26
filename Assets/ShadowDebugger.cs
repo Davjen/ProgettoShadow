@@ -13,6 +13,7 @@ public class ShadowDebugger : MonoBehaviour
     public float lenght;
     public Light spotLight;
     bool created;
+
     public Vector3 meshColliderCheckerPos;
     public bool Inside;
     // Start is called before the first frame update
