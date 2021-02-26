@@ -47,7 +47,7 @@ public class ShadowDebugger : MonoBehaviour
             RightVertex = transform.position;
             //Debug.Log("SOno Dentro il cono di luce");
             
-            for (int i = 0; i < mesh.vertices.Length/2; i++)
+            for (int i = 0; i < mesh.vertices.Length / 3; i++)
             {
                 Vector3 vPos = transform.TransformPoint(mesh.vertices[i]);
                 Vector3 dir = (vPos - LightPos.position).normalized;
@@ -61,7 +61,7 @@ public class ShadowDebugger : MonoBehaviour
                     }
 
                 }
-               // Debug.DrawRay(LightPos.position, dir * lenght);
+                //Debug.DrawRay(LightPos.position, dir * lenght);
                 points.Add(hit.point);
                 points.Add(mesh.vertices[i]);
                 //CHECK VERTEX
@@ -86,7 +86,7 @@ public class ShadowDebugger : MonoBehaviour
 
                 //shadowAngle += Vector3.Angle(LightPos.forward, shadowDir);
             }
-            meshColliderCheckerPos /= (mesh.vertices.Length/2) * 2;
+            meshColliderCheckerPos /= (mesh.vertices.Length / 3) * 2;
             //shadowAngle /= (mesh.vertices.Length / 3);
 
 
@@ -110,7 +110,7 @@ public class ShadowDebugger : MonoBehaviour
         }
 
         Inside = ShadowColliderCheck2();
-        points.Clear();
+
     }
     //bool ShadowColliderCheck() //funziona SELL'OBJ IN OMBRA è QUELLO DA SPOSTARE E LA LUCE E L'OGGETTO CHE FA OMBRA SONO FISSI.
     //{
